@@ -1,23 +1,16 @@
-import React, {
-	useMemo,
-	useState,
-	useEffect,
-	useRef,
-	useCallback,
-} from "react";
+import React, { useMemo, useState, useRef, useCallback } from "react";
 import {
 	GoogleMap,
 	Marker,
-	MarkerClusterer,
+	// MarkerClusterer,
 	InfoWindow,
 } from "@react-google-maps/api";
 
 // type LatLngLiteral = google.maps.LatLngLiteral;
 // type MapOptions = google.maps.MapOptions;
-
-import Markers from "./Markers";
 import "./Map.css";
 import Location from "../Location/Location";
+import purpleMarker from "../../img/purple_Marker.png";
 
 const Map = () => {
 	const mapRef = useRef();
@@ -39,10 +32,13 @@ const Map = () => {
 	);
 
 	const onLoad = useCallback((map) => (mapRef.current = map), []);
-	const [data, setData] = useState(generateRandomData(center));
+	const [data] = useState(generateRandomData(center));
 	const [highlight, setHighlight] = useState(null);
+	const [addingReview, setAddingReview] = useState(false);
 
 	const handleMarkerClick = useCallback((marker) => {
+		// setHighlight(null);
+		setAddingReview(false);
 		setHighlight(marker);
 	}, []);
 
@@ -65,6 +61,7 @@ const Map = () => {
 						key={location.id}
 						position={location.position}
 						onClick={() => handleMarkerClick(location)}
+						icon={purpleMarker}
 					/>
 				))}
 				{highlight && (
@@ -72,7 +69,11 @@ const Map = () => {
 						position={highlight.position}
 						onCloseClick={handleInfoWindowClose}
 					>
-						<Location location={highlight} />
+						<Location
+							location={highlight}
+							addingReview={addingReview}
+							setAddingReview={setAddingReview}
+						/>
 					</InfoWindow>
 				)}
 			</>
@@ -97,38 +98,34 @@ const generateRandomData = (position) => {
 			lat: newLat,
 			lng: newLng,
 			position: { lat: newLat, lng: newLng },
+			description:
+				"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, repellendus? Rerum soluta ipsam ad ea et, officiis culpa totam similique vel quasi cupiditate quo voluptatibus placeat quisquam doloremque omnis fugiat.",
+			rating: Math.round(10 * Math.random() * 5) / 10, // Math.random() * 5 will give a random number from 0-5. The 10*num / 10 will round the number to the nearest tenth
+			amenities: ["coffee", "bathroom", "outdoors"],
+			images: [
+				"https://www.cnet.com/a/img/resize/69256d2623afcbaa911f08edc45fb2d3f6a8e172/hub/2023/02/03/afedd3ee-671d-4189-bf39-4f312248fb27/gettyimages-1042132904.jpg?auto=webp&fit=crop&height=675&width=1200",
+			],
+			reviews: [
+				{
+					user: `User ${i}`,
+					id: Math.random() * 999999,
+					rating: 1.0,
+					comment: `Coffee was ${i}$, too spenny`,
+				},
+				{
+					user: `User ${i + 1}`,
+					id: Math.random() * 999999,
+					rating: 3.0,
+					comment: `Coffee was ${i + 1}$, too asadljslad`,
+				},
+				{
+					user: `User ${i + 2}`,
+					id: Math.random() * 999999,
+					rating: 5.0,
+					comment: `Coffee was ${i + 2}$, too cheap`,
+				},
+			],
 		});
 	}
 	return randomLocations;
 };
-
-// const Map = () => {
-// 	const [map, setMap] = useState();
-// 	const ref = useRef();
-
-// 	const mapOptions = useMemo(
-// 		() => ({
-// 			mapId: process.env.REACT_APP_GOOGLE_MAPS_MAP_ID,
-// 			center: { lat: 34.02127561489714, lng: -118.2866354425022 },
-// 			zoom: 15,
-// 			disableDefaultUI: true,
-// 		}),
-// 		[]
-// 	);
-
-// 	// Creates an instance of the map
-// 	useEffect(() => {
-// 		setMap(new window.google.maps.Map(ref.current, mapOptions));
-// 	}, [mapOptions]);
-
-// 	return (
-// 		<>
-// 			<div
-// 				ref={ref}
-// 				id="map"
-// 				className="map-container"
-// 			/>
-// 			{map && <Markers map={map} />}
-// 		</>
-// 	);
-// };

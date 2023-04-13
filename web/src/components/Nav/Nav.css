@@ -1,12 +1,13 @@
 header {
 	position: relative;
+	z-index: 100;
 }
 
 header > nav {
 	background: rgb(175, 105, 238);
 	width: 100%;
 	height: 70px;
-	position: fixed;
+	/* position: fixed; */
 	top: 0;
 	left: 0;
 	box-shadow: 0 3px 5px rgb(0,0,0);
@@ -14,7 +15,6 @@ header > nav {
 	display: flex;
 	flex-flow: row nowrap;
 	align-items: center;
-	z-index: 100;
 }
 
 .nav__item {
