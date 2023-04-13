@@ -5,7 +5,5 @@ carousel for images and reviews (add scrolling)
 style button that displays more reviews
 change isLoggedIn from const to be whether or not user is fr logged in
 change data to actual data fetched from backend
-fix reviews (why are different instances of the component sharing the same state??) 
-	(its bc im not closing the window before clicking another spot, how to change the state with no need to close?)
 fix click to see more reviews show/hide
-fix when click to see more reviews deletes recently added review
+fix when click to see more reviews deletes recently added review : pass set data to add review and do data[data.indexOf(location)] = newLocation

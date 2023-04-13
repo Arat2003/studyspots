@@ -32,14 +32,16 @@ const Map = () => {
 	);
 
 	const onLoad = useCallback((map) => (mapRef.current = map), []);
-	const [data] = useState(generateRandomData(center));
+	const [data, setData] = useState(generateRandomData(center));
 	const [highlight, setHighlight] = useState(null);
 	const [addingReview, setAddingReview] = useState(false);
 
 	const handleMarkerClick = useCallback((marker) => {
-		// setHighlight(null);
-		setAddingReview(false);
-		setHighlight(marker);
+		setHighlight(null);
+		setTimeout(() => {
+			setAddingReview(false);
+			setHighlight(marker);
+		}, 10);
 	}, []);
 
 	const handleInfoWindowClose = useCallback(() => {
@@ -73,6 +75,8 @@ const Map = () => {
 							location={highlight}
 							addingReview={addingReview}
 							setAddingReview={setAddingReview}
+							data={data}
+							setData={setData}
 						/>
 					</InfoWindow>
 				)}

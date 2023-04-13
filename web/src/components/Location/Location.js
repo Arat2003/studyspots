@@ -5,7 +5,13 @@ import "./Location.css";
 import AddReview from "../AddReview/AddReview";
 
 // maybe change img to carousel of images
-const Location = ({ location, addingReview, setAddingReview }) => {
+const Location = ({
+	location,
+	addingReview,
+	setAddingReview,
+	data,
+	setData,
+}) => {
 	const { name, address, images, description, rating, amenities, reviews } =
 		location;
 
