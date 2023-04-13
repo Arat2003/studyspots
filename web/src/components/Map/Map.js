@@ -80,6 +80,7 @@ const Map = () => {
 						/>
 					</InfoWindow>
 				)}
+				
 			</>
 		</GoogleMap>
 	);
