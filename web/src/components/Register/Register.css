@@ -63,17 +63,9 @@ rgba(255, 255, 255, 1);
   background-color: var(--alto);
   display: flex;
   height: 58px;
-  justify-content: flex-end;
-  margin-top: 29px;
+  margin-top: 27px;
   min-width: 313px;
-  padding: 19px 21px;
-}
-
-.enter-email {
-  height: 18px;
-  letter-spacing: 0;
-  line-height: normal;
-  width: 266px;
+  padding: 19px 26px;
 }
 
 .overlap-group2 {
@@ -85,6 +77,15 @@ rgba(255, 255, 255, 1);
   min-width: 313px;
   padding: 19px 26px;
 }
+
+.enter-email {
+  height: 18px;
+  letter-spacing: 0;
+  line-height: normal;
+  width: 266px;
+}
+
+
 
 .x-password {
   height: 18px;
@@ -142,8 +143,6 @@ rgba(255, 255, 255, 1);
   
     --font-family-inter: "Inter";
   }
-  
-  
   
   .inter-normal-black-16px {
     color: var(--black);
