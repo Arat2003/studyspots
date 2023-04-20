@@ -2,61 +2,41 @@ import React from "react";
 import "./Register.css";
 function App() {
   return (
-    <Register
-      spanText1="Trojan Study Spots"
-      spanText2="Enter Email"
-      spanText3="Create new password"
-      spanText4="Re-enter password"
-      spanText5="REGISTER"
-    />
+    <Register/>
   );
 }
 
 export default App;
 
-function Register(props) {
-  const { spanText1, spanText2, spanText3, spanText4, spanText5 } = props;
-
-  return (
-    <div className="container-center-horizontal">
-      <div className="registerscreen">
-        <div className="overlap-group">
-          <h1 className="titlevalign-text-middleinter-normal-black-36px">
-            <span>
-              <span className="inter-normal-black-36px">{spanText1}</span>
-            </span>
-          </h1>
-          <div className="overlap-group3">
-            <div className="enter-emailvalign-text-middleinter-normal-black-15px">
-              <span>
-                <span className="inter-normal-black-15px">{spanText2}</span>
-              </span>
-            </div>
-          </div>
-          <div className="overlap-group2">
-            <div className="x-passwordvalign-text-middleinter-normal-black-15px">
-              <span>
-                <span className="inter-normal-black-15px">{spanText3}</span>
-              </span>
-            </div>
-          </div>
-          <div className="overlap-group4">
-            <div className="x-passwordvalign-text-middleinter-normal-black-15px">
-              <span>
-                <span className="inter-normal-black-15px">{spanText4}</span>
-              </span>
-            </div>
-          </div>
-          <div className="overlap-group1">
-            <div className="placevalign-text-middleinter-normal-white-24px">
-              <span>
-                <span className="inter-normal-white-24px">{spanText5}</span>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
+function Register() {
+  return(
+    <div className = "form">
+    <div className="form-body">
+      <h1 class="form-title">Register</h1>
+    <div className="username">
+        <label className="form__label" for="firstName">First Name </label>
+        <input className="form__input" type="text" id="firstName" placeholder="First Name"/>
     </div>
-  );
-}
-
+    <div className="lastname">
+        <label className="form__label" for="lastName">Last Name </label>
+        <input  type="text" name="" id="lastName"  className="form__input"placeholder="LastName"/>
+    </div>
+    <div className="email">
+        <label className="form__label" for="email">Email </label>
+        <input  type="email" id="email" className="form__input" placeholder="Email"/>
+    </div>
+    <div className="password">
+        <label className="form__label" for="password">Password </label>
+        <input className="form__input" type="password"  id="password" placeholder="Password"/>
+    </div>
+    <div className="confirm-password">
+        <label className="form__label" for="confirmPassword">Confirm Password </label>
+        <input className="form__input" type="password" id="confirmPassword" placeholder="Confirm Password"/>
+    </div>
+</div>
+<div class="footer">
+    <button type="submit" class="btn">Register</button>
+</div>
+</div>      
+)    
+  }
