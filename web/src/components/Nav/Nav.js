@@ -5,9 +5,7 @@ const Nav = () => {
 	return (
 		<header>
 			<nav>
-				<div className={`nav__item`}>
-					<a href ="#">Home</a> 
-				</div>
+				<div className="nav__item"><a href ="../index">Home</a></div>
 				<div className="nav__item"><a href ="../register">Register</a></div>
 				<div className={`nav__item`}><a href ="../login">Login</a></div>
 			</nav>

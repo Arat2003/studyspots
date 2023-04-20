@@ -1,5 +1,7 @@
 import React from "react";
 import "./Register.css";
+import Layout from "../Layout";
+
 function App() {
   return (
     <Register/>
@@ -10,6 +12,8 @@ export default App;
 
 function Register() {
   return(
+    <div>
+    <Layout />
     <div className = "form">
     <div className="form-body">
       <h1 class="form-title">Register</h1>
@@ -38,5 +42,6 @@ function Register() {
     <button type="submit" class="btn">Register</button>
 </div>
 </div>      
+</div>
 )    
   }

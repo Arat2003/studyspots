@@ -1,5 +1,7 @@
 import React from "react";
 import "./Login.css";
+import Layout from "../Layout";
+
 function App() {
   return (
     <Login/>
@@ -10,6 +12,8 @@ export default App;
 
 function Login() {
   return(
+    <div>
+      <Layout />
     <div className = "form">
     <div className="form-body">
       <h1 class="form-title">Login</h1>
@@ -29,5 +33,6 @@ function Login() {
     <a href ="../register"><button type="button" class="btn">Register</button></a>
     </div>
 </div>      
+</div>
 )    
 }
