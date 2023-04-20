@@ -25,8 +25,9 @@ function Login() {
 
 </div>
 <div class="footer">
-    <button type="submit" class="btn">Register</button>
-</div>
+    <button type="submit" class="btn">Log in</button>
+    <a href ="../register"><button type="button" class="btn">Register</button></a>
+    </div>
 </div>      
 )    
 }
