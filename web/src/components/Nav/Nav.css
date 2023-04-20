@@ -19,8 +19,20 @@ header > nav {
 
 .nav__item {
 	list-style: none;
-	width: 100%;
 	display: flex;
 	flex-direction: row nowrap;
+	margin-left: 15px;
+	border: 1px solid white;
+
 	/* justify-content: space-around; */
 }
+a{
+	text-decoration: none;
+	color:white;
+	font-weight: bold;
+	font-family: Bodoni;
+	padding: 10px;
+}
+.nav__item:first-child {
+	margin-left: 0;
+  }
