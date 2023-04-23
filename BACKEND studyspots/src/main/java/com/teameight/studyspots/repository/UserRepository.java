@@ -1,15 +1,13 @@
 package com.teameight.studyspots.repository;
+import java.util.Optional;
 
-import com.teameight.studyspots.entities.user;
+import com.teameight.studyspots.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
-public interface UserRepository extends JpaRepository<user, Integer> {
+public interface UserRepository extends JpaRepository<User, Integer> {
 
-    user findByEmail(String email);
-    user validateLogin(String username, String password);
-
-    
-
+    Optional<User> findByEmail(String email);
+    //Optional<User> getByPassword(String username, String password);
 }
 

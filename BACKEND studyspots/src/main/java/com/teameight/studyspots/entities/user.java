@@ -1,5 +1,4 @@
 package com.teameight.studyspots.entities;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,7 +8,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "Users")
-public class user {
+public class User {
      
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -70,4 +69,5 @@ public class user {
         this.lastName = lastName;
     }
 }
+
 
