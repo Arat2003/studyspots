@@ -1,0 +1,51 @@
+
+@RestController
+public class UserController{
+
+    @Autowired
+    privateUserRepository UserRepository;
+
+    @PostMapping("/register")
+    public ResponseEntity<?> register(@RequestBody User user) {
+        if(userRepository.findByEmail(user.getEmail()).isPresent()){
+            return ResponseEntity.badRequest().build();
+        }
+
+        //save user to database
+        userRepository.save(user);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(user.getId());
+
+    }
+
+    @PostMapping("login")
+    public ResponseEntity<?> login(@RequestBody User user) {
+        Optional<User> optionalUser = userRepository.findByEmail(user.getEmail());
+        if (!optionalUser.isPresent()) {
+            return ResponseEntity.badRequest().build();
+        }
+
+
+
+        User dbUser = optionalUser.get();
+
+
+        if(!user.getPassword().equals(dbUser.getPassword())){
+            return ResponseEntity.badRequest().build();
+        }
+        return ResponseEntity.ok(dbUser.getId());
+    }
+
+    // @GetMapping("/login")
+    // ResponseEntity<User> loginResponse() {
+
+    //     return ResponseEntity.ok().build();
+
+    // }
+
+    // @GetMapping("/register")
+    // ResponseEntity<User> registerResponse() {
+    //     return ResponseEntity.ok().build();
+    // }
+
+}
