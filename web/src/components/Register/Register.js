@@ -11,6 +11,35 @@ function App() {
 export default App;
 
 function Register() {
+  function handleRegister() {
+    const firstName = document.getElementById("firstName").value;
+    const lastName = document.getElementById("lastName").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ 
+        firstName: firstName, 
+        lastName: lastName,
+        email: email,
+        password: password 
+      })
+    };
+
+    fetch('/register', requestOptions)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Registration failed');
+        }
+        alert('Registration successful!');
+      })
+      .catch(error => {
+        console.error('There was an error registering the user:', error);
+      });
+  }
+
   return(
     <div>
     <Layout />
@@ -39,9 +68,9 @@ function Register() {
     </div>
 </div>
 <div class="footer">
-    <button type="submit" class="btn">Register</button>
+    <button type="submit" class="btn" onClick={handleRegister}>Register</button>
 </div>
 </div>      
 </div>
-)    
-  }
+);    
+}
