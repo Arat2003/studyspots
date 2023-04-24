@@ -28,12 +28,13 @@ function Register() {
       })
     };
 
-    fetch('/register', requestOptions)
+    fetch("http://localhost:3000/register", requestOptions)
       .then(response => {
         if (!response.ok) {
           throw new Error('Registration failed');
         }
         alert('Registration successful!');
+        console.log(response);
       })
       .catch(error => {
         console.error('There was an error registering the user:', error);
